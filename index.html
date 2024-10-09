@@ -1,94 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Bornali Phukon - Personal Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-    header {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 0;
-      text-align: center;
-    }
-    .container {
-      width: 80%;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: white;
-    }
-    img {
-      max-width: 150px;
-      border-radius: 50%;
-      display: block;
-      margin: 20px auto;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    p {
-      text-align: justify;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #4CAF50;
-      color: white;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-    }
-    .social-links a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Profile</title>
+    <style>
+        /* Basic Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        /* Background Section */
+        .background-section {
+            background: url('YOUR_BACKGROUND_IMAGE_URL') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Profile Picture */
+        .profile-pic {
+            border-radius: 50%;
+            border: 5px solid white;
+            width: 150px;
+            height: 150px;
+            background-image: url('https://github.com/BornaliP.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Name and Bio */
+        .name {
+            font-size: 2.5em;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .bio {
+            font-size: 1.2em;
+            color: white;
+            margin-top: 10px;
+        }
+
+        /* Social Links */
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            font-size: 1.5em;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #ddd;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <h1>Dr. [Your Name]</h1>
-</header>
+    <!-- Background Section -->
+    <div class="background-section">
+        <!-- Profile Picture -->
+        <div class="profile-pic"></div>
 
-<div class="container">
-  <img src="path-to-your-photo.jpg" alt="Your Photo">
-  
-  <h2>About Me</h2>
-  <p>
-    Hello! I am Dr. Bornali Phukon, currently a Postdoctoral Research Associate at the Beckman Institute, University of Illinois Urbana-Champaign. I work as part of the Statistical Speech Technology group on the Speech Accessibility Project. My research focuses on improving voice recognition technology for diverse speech patterns and disabilities.
-  </p>
-  
-  <h2>Research Interests</h2>
-  <p>
-    My work spans the areas of Automatic Speech Recognition (ASR), semantic metrics, large language models (LLMs), and evaluation of ASR systems for dysarthric speech. I am particularly interested in developing tools and metrics to assess ASR models for diverse speech patterns, as well as integrating ASR systems with error correction models.
-  </p>
-  
-  <h2>Selected Publications</h2>
-  <ul>
-    <li><b>Fine-Tuning Automatic Speech Recognition for People with Parkinson’s</b> - INTERSPEECH 2024 (Co-authored with Xiuwen and Professor Mark)</li>
-    <li><b>Rethinking ASR Evaluation Metrics for Dysarthric Speech: A Post-LLM Era Perspective</b> (Under Review)</li>
-  </ul>
-  
-  <h2>Contact</h2>
-  <p>Email: your-email@domain.com</p>
-  <p>GitHub: <a href="https://github.com/<your-username>">github.com/<your-username></a></p>
-  
-</div>
+        <!-- Name -->
+        <h1 class="name">Bornali Phukan</h1>
 
-<footer>
-  <p>Follow me on social media:</p>
-  <div class="social-links">
-    <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a> |
-    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-  </div>
-</footer>
+        <!-- Bio -->
+        <p class="bio">I am a researcher focused on AI and speech recognition technologies.</p>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://github.com/BornaliP" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank">LinkedIn</a>
+        </div>
+    </div>
 
 </body>
 </html>
