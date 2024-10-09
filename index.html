@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Profile</title>
+    <title>Bornali Phukan</title>
     <style>
         /* Basic Styling */
         * {
@@ -15,17 +15,18 @@
 
         body {
             background-color: #f4f4f4;
-            text-align: center;
+            padding: 50px;
         }
 
-        /* Background Section */
-        .background-section {
-            background: url('YOUR_BACKGROUND_IMAGE_URL') no-repeat center center/cover;
-            height: 100vh;
+        .container {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         /* Profile Picture */
@@ -39,54 +40,68 @@
             background-position: center;
         }
 
-        /* Name and Bio */
+        /* Profile Info */
+        .profile-info {
+            flex: 1;
+            margin-right: 40px;
+        }
+
         .name {
             font-size: 2.5em;
-            color: white;
-            margin-top: 20px;
+            color: black;
+            margin-bottom: 10px;
         }
 
         .bio {
             font-size: 1.2em;
-            color: white;
-            margin-top: 10px;
+            color: black;
+            margin-bottom: 20px;
         }
 
         /* Social Links */
-        .social-links {
-            margin-top: 20px;
-        }
-
         .social-links a {
-            margin: 0 10px;
+            margin-right: 15px;
             font-size: 1.5em;
-            color: white;
+            color: black;
             text-decoration: none;
         }
 
         .social-links a:hover {
-            color: #ddd;
+            color: gray;
         }
     </style>
 </head>
 <body>
 
-    <!-- Background Section -->
-    <div class="background-section">
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Profile Information -->
+        <div class="profile-info">
+            <h1 class="name">Bornali Phukan</h1>
+            <p class="bio">
+                I am a Postdoctoral Research Associate at the Beckman Institute, University of Illinois Urbana-Champaign, 
+                working in the Statistical Speech Technology group. My research is focused on advancing speech recognition 
+                technology, with an emphasis on improving accessibility for individuals with diverse speech patterns and 
+                disabilities. I have contributed to projects that fine-tune ASR models, improving their effectiveness 
+                for people with dysarthria and other speech disorders.
+            </p>
+            <p class="bio">
+                Passionate about combining AI, Natural Language Processing (NLP), and Machine Learning, I aim to enhance 
+                user experiences and promote inclusivity. My recent work integrates Large Language Models (LLMs) with ASR 
+                systems to correct transcription errors in challenging contexts like dysarthric speech. I have co-authored 
+                several papers, including one that will be presented at INTERSPEECH 2024, addressing innovative strategies 
+                for speech technology accessibility.
+            </p>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://github.com/BornaliP" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+
         <!-- Profile Picture -->
         <div class="profile-pic"></div>
-
-        <!-- Name -->
-        <h1 class="name">Bornali Phukan</h1>
-
-        <!-- Bio -->
-        <p class="bio">I am a researcher focused on AI and speech recognition technologies.</p>
-
-        <!-- Social Links -->
-        <div class="social-links">
-            <a href="https://github.com/BornaliP" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank">LinkedIn</a>
-        </div>
     </div>
 
 </body>
