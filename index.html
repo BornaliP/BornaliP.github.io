@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Dr. Bornali Phukan</title>
+    <title>Dr. Bornali Phukan</title>
+
+    <!-- Importing the Spectral font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         /* Basic Styling */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Spectral;
+            font-family: 'Spectral', serif;
         }
 
         body {
@@ -29,7 +33,7 @@
         /* Top section with Profile Picture and Info side by side */
         .profile-header {
             display: flex;
-            flex-wrap: wrap; /* Allows wrapping if screen size is small */
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             margin-bottom: 20px;
@@ -39,8 +43,8 @@
         .profile-pic {
             border-radius: 50%;
             border: 5px solid white;
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             background-image:url('454852218_8354837297912151_5165400045322136592_n.jpg');
             background-size: cover;
             background-position: center;
@@ -55,13 +59,13 @@
         }
 
         .name {
-            font-size: 2em;
+            font-size: 1.8em;
             color: black;
             margin-bottom: 10px;
         }
 
         .bio {
-            font-size: 1.2em;
+            font-size: 0.95em; /* Smaller text size */
             color: black;
             margin-bottom: 20px;
         }
@@ -73,13 +77,13 @@
         }
 
         .section h2 {
-            font-size: 1.5em;
+            font-size: 1.2em;
             margin-bottom: 10px;
             color: #333;
         }
 
         .section p {
-            font-size: 1.2em;
+            font-size: 0.95em; /* Smaller text size */
             color: black;
             margin-bottom: 20px;
         }
@@ -87,7 +91,7 @@
         /* Social Links */
         .social-links a {
             margin-right: 15px;
-            font-size: 1.5em;
+            font-size: 1.3em;
             color: black;
             text-decoration: none;
         }
