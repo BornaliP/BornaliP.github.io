@@ -1,0 +1,585 @@
+<!--
+═══════════════════════════════════════════════════════
+  HOW TO UPDATE YOUR WEBSITE FROM GITHUB
+═══════════════════════════════════════════════════════
+
+  PROFILE PHOTO
+  → Upload a file named exactly: profile.jpg
+  → Go to your repo → Add file → Upload files
+  → Drop your photo → rename it profile.jpg → Commit
+
+  RESUME / CV
+  → Upload a file named exactly: resume.pdf
+  → Same process: Add file → Upload → Commit
+
+  TRAVEL PHOTOS
+  → Upload photos named: travel1.jpg, travel2.jpg, travel3.jpg
+  → Then in this file find the gallery section and replace:
+      <div class="gallery-placeholder">📍 Add photo</div>
+    with:
+      <img src="travel1.jpg" alt="your caption">
+
+  EDIT ANY TEXT
+  → In GitHub repo, click index.html → click the pencil ✏️ icon
+  → Edit directly → Commit changes
+
+  THINGS TO UPDATE:
+  ✦ profile.jpg       — your profile photo
+  ✦ resume.pdf        — your CV/resume
+  ✦ travel1/2/3.jpg   — travel photos
+  ✦ Your email in Contact section (search: bornalip@illinois.edu)
+  ✦ LinkedIn URL (search: linkedin.com/in/bornali-phukon)
+  ✦ Twitter/X handle if you have one
+
+═══════════════════════════════════════════════════════
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Bornali Phukon — Research Scientist, NLP & Speech AI</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --ink-mid: #4a4640;
+    --ink-light: #8a857e;
+    --paper: #faf9f6;
+    --warm: #f4f1ec;
+    --accent: #2c4a7c;
+    --accent-light: #e8edf5;
+    --gold: #b8860b;
+    --border: rgba(26,24,20,0.1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,249,246,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; letter-spacing: 0.01em; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.82rem; font-weight: 400; color: var(--ink-mid); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 1100px; margin: 0 auto;
+    padding: 2.5rem 2.5rem 2rem;
+    display: grid; grid-template-columns: 1fr 340px; gap: 3rem; align-items: start;
+  }
+  .hero-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    line-height: 1.1; letter-spacing: -0.02em;
+    color: var(--ink); margin-bottom: 0.9rem;
+  }
+  .hero-bio {
+    font-size: 1.05rem; color: var(--ink-mid); line-height: 1.75;
+    max-width: 560px; margin-bottom: 1.2rem;
+  }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+  .tag {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.05em;
+    padding: 5px 12px; border-radius: 20px;
+    border: 1px solid var(--border); color: var(--ink-mid);
+    background: var(--warm);
+  }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 10px 22px; border-radius: 4px; text-decoration: none;
+    transition: all 0.2s; display: inline-block;
+  }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-outline { border: 1px solid var(--ink-light); color: var(--ink-mid); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-photo-col { position: relative; padding-top: 0.5rem; }
+  .photo-frame {
+    width: 100%; aspect-ratio: 4/5; overflow: hidden;
+    border-radius: 6px;
+    background: var(--accent-light);
+  }
+  .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .photo-caption {
+    margin-top: 0.75rem;
+    font-size: 0.72rem; color: var(--ink-light); text-align: center;
+    font-style: italic; letter-spacing: 0.02em;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0 2.5rem; }
+
+  /* ── SECTION ── */
+  section { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2.5rem; }
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .section-num { font-family: 'DM Serif Display', serif; font-size: 0.75rem; color: var(--ink-light); }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--ink); }
+
+  /* ── ABOUT ── */
+    .about-grid { max-width: 760px; }
+  .about-text p { color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.1rem; font-size: 1.02rem; }
+  .about-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .about-meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .about-meta-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); }
+  .about-meta-val { font-size: 0.9rem; color: var(--ink-mid); }
+
+  /* ── PUBLICATIONS ── */
+  .pub-list { display: flex; flex-direction: column; gap: 1.5px; }
+  .pub-item {
+    display: grid; grid-template-columns: 80px 1fr auto;
+    gap: 1.5rem; align-items: start;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-year { font-size: 0.8rem; color: var(--ink-light); font-weight: 300; padding-top: 3px; }
+  .pub-venue {
+    display: inline-block; font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    background: var(--accent-light); color: var(--accent);
+    padding: 3px 9px; border-radius: 3px; margin-bottom: 0.5rem;
+  }
+  .pub-title { font-size: 1rem; font-weight: 500; color: var(--ink); line-height: 1.4; margin-bottom: 0.4rem; }
+  .pub-authors { font-size: 0.82rem; color: var(--ink-light); }
+  .pub-me { color: var(--ink-mid); font-weight: 500; }
+  .pub-status {
+    font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--gold); background: rgba(184,134,11,0.08);
+    padding: 3px 8px; border-radius: 3px; white-space: nowrap; align-self: start;
+  }
+
+  /* ── EXPERIENCE ── */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item {
+    display: grid; grid-template-columns: 180px 1fr;
+    gap: 1.5rem; padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-date { font-size: 0.8rem; color: var(--ink-light); padding-top: 3px; line-height: 1.5; }
+  .exp-role { font-size: 1rem; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .exp-org { font-size: 0.9rem; color: var(--accent); margin-bottom: 0.75rem; }
+  .exp-bullets { list-style: none; padding: 0; }
+  .exp-bullets li {
+    font-size: 0.88rem; color: var(--ink-mid); line-height: 1.65;
+    padding-left: 1.1rem; position: relative; margin-bottom: 0.4rem;
+  }
+  .exp-bullets li::before { content: "—"; position: absolute; left: 0; color: var(--ink-light); font-weight: 300; }
+
+  /* ── VENTURES ── */
+  .ventures-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .venture-card {
+    padding: 2rem;
+    border: 1px solid var(--border); border-radius: 6px;
+    background: var(--warm);
+  }
+  .venture-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+  .venture-name { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--ink); margin-bottom: 4px; }
+  .venture-role { font-size: 0.78rem; color: var(--ink-light); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+  .venture-desc { font-size: 0.9rem; color: var(--ink-mid); line-height: 1.7; }
+
+  /* ── SKILLS ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .skill-group { }
+  .skill-group-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 0.75rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-tag { font-size: 0.75rem; padding: 4px 10px; background: var(--paper); border: 1px solid var(--border); border-radius: 3px; color: var(--ink-mid); }
+
+  /* ── CONTACT ── */
+  .contact-section { background: var(--accent); }
+  .contact-inner { max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; }
+  .contact-heading { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--paper); margin-bottom: 0.75rem; }
+  .contact-sub { font-size: 0.95rem; color: rgba(250,249,246,0.7); max-width: 480px; }
+  .contact-links { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+  .contact-link {
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--paper); text-decoration: none; padding: 9px 18px;
+    border: 1px solid rgba(250,249,246,0.3); border-radius: 4px;
+    transition: all 0.2s; min-width: 160px; text-align: center;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.1); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border); padding: 1.5rem 2.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .footer-text { font-size: 0.78rem; color: var(--ink-light); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem 2rem; }
+    .hero-photo-col { order: -1; max-width: 260px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    
+    .pub-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .contact-inner { grid-template-columns: 1fr; }
+    .contact-links { align-items: flex-start; }
+    section { padding: 3rem 1.5rem; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    .divider { margin: 0 1.5rem; }
+  }
+
+  /* ── GALLERY ── */
+  .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto; gap: 12px; }
+  .gallery-card.featured { grid-column: 1 / 3; }
+  .gallery-img-wrap { width:100%; aspect-ratio:16/10; background:var(--warm); border:1px solid var(--border); border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .gallery-img-wrap.small { aspect-ratio:4/3; }
+  .gallery-img-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
+  .gallery-placeholder { font-size:0.8rem; color:var(--ink-light); text-align:center; padding:1rem; }
+  .gallery-caption { font-size:0.75rem; color:var(--ink-light); margin-top:6px; padding-left:2px; }
+  @media(max-width:768px){.gallery-grid{grid-template-columns:1fr;}.gallery-card.featured{grid-column:1;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Bornali Phukon</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#experience">CV</a></li>
+    
+    <li><a href="#travel">Beyond the Lab</a></li><li><a href="resume.pdf" target="_blank">CV</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-label">Research Scientist · NLP & Speech AI</div>
+    <h1>Dr. Bornali<br>Phukon</h1>
+    <p class="hero-bio">
+      Affiliate Research Scientist at the Beckman Institute, UIUC, working with Prof. Mark Hasegawa-Johnson on dysarthric speech recognition, LLM-based ASR error correction, and semantic evaluation for accessible AI.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">Dysarthric Speech ASR</span>
+      <span class="tag">LLM Error Correction</span>
+      <span class="tag">Semantic Evaluation</span>
+      <span class="tag">Speaker Adaptation</span>
+      <span class="tag">Uncertainty Quantification</span>
+      <span class="tag">Low-Resource NLP</span>
+    </div>
+    <div class="cta-row">
+      <a href="#publications" class="btn btn-primary">View Publications</a>
+      <a href="https://scholar.google.com/citations?user=Ecmv_T4AAAAJ&hl=en" target="_blank" class="btn btn-outline">Google Scholar ↗</a>
+      <a href="resume.pdf" target="_blank" class="btn btn-outline">Resume PDF ↗</a>
+      <a href="#contact" class="btn btn-outline">Contact</a>
+    </div>
+  </div>
+  <div class="hero-photo-col">
+    <div class="photo-frame">
+      <img src="profile.jpg" alt="Dr. Bornali Phukon at Interspeech 2025, Rotterdam">
+    </div>
+    <p class="photo-caption">Interspeech 2025 · Rotterdam</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I am a Research Scientist and computational linguist working at the intersection of accessibility, speech AI, and language understanding. My work focuses on making automatic speech recognition systems reliable for people with dysarthria and other speech differences — a problem that combines deep technical challenge with direct human impact.
+      </p>
+      <p>
+        As an Affiliate Research Scientist at the <strong>Beckman Institute, University of Illinois Urbana–Champaign</strong>, I collaborate with Prof. Mark Hasegawa-Johnson on the <a href="https://speechaccessibilityproject.beckman.illinois.edu/" target="_blank" style="color:var(--accent)">Speech Accessibility Project</a>. My recent contributions include <strong>SemScore</strong>, a semantic evaluation metric that achieves 0.890 correlation with human judgments — surpassing WER, BERTScore, and BLEURT — and an uncertainty-based correction gate that prevents harmful LLM edits while maintaining zero new errors across seven open-source models.
+      </p>
+      <p>
+        Before UIUC, I spent seven years at IIT Guwahati, where my doctoral work addressed ontology expansion and lexical knowledge graphs for low-resource Indian languages. I hold an M.Tech from Gauhati University (CGPA 9.01) and have published at NAACL, Interspeech, ICASSP, and ACM TALIP.
+      </p>
+      <div class="about-meta">
+        <div class="about-meta-item"><span class="about-meta-label">Affiliation</span><span class="about-meta-val">Beckman Institute · UIUC</span></div>
+        <div class="about-meta-item"><span class="about-meta-label">Location</span><span class="about-meta-val">Guwahati, Assam · Remote</span></div>
+        <div class="about-meta-item"><span class="about-meta-label">Degree</span><span class="about-meta-val">Ph.D. Computational Linguistics · IIT Guwahati</span></div>
+        <div class="about-meta-item"><span class="about-meta-label">Research areas</span><span class="about-meta-val">Speech AI · NLP · Accessibility · Evaluation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Selected Publications</h2>
+  </div>
+  <div class="pub-list">
+
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div>
+        <span class="pub-venue">Under Review</span>
+        <div class="pub-title">Not All Errors Are Equal: Metric Disagreement as Uncertainty for Dysarthric ASR Evaluation</div>
+        <div class="pub-authors"><span class="pub-me">B. Phukon</span>, X. Zheng, M. Hasegawa-Johnson</div>
+      </div>
+      <span class="pub-status">Under Review</span>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div>
+        <span class="pub-venue">ICASSP 2026</span>
+        <div class="pub-title">Towards Robust Dysarthric Speech Recognition: LLM-Agent Post-ASR Correction Beyond WER</div>
+        <div class="pub-authors">X. Zheng, S. Dong, <span class="pub-me">B. Phukon</span>, M. Hasegawa-Johnson, C.D. Yoo</div>
+      </div>
+      <span class="pub-status">Accepted</span>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div>
+        <span class="pub-venue">Interspeech 2025</span>
+        <div class="pub-title">Aligning ASR Evaluation with Human and LLM Judgments: Intelligibility Metrics Using Phonetic, Semantic, and NLI Approaches</div>
+        <div class="pub-authors"><span class="pub-me">B. Phukon</span>, X. Zheng, M. Hasegawa-Johnson</div>
+        <div style="margin-top:6px"><a href="https://github.com/BornaliP/SemScore" target="_blank" style="font-size:0.75rem;color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:3px 10px;border-radius:3px;">⌥ GitHub: SemScore ↗</a></div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2025</div>
+      <div>
+        <span class="pub-venue">Interspeech 2025</span>
+        <div class="pub-title">The Interspeech 2025 Speech Accessibility Project Challenge</div>
+        <div class="pub-authors">X. Zheng, <span class="pub-me">B. Phukon</span>, et al.</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2024</div>
+      <div>
+        <span class="pub-venue">Interspeech 2024</span>
+        <div class="pub-title">Fine-Tuning Automatic Speech Recognition for People with Parkinson's: Enhancing Speech Technology Accessibility</div>
+        <div class="pub-authors">X. Zheng, <span class="pub-me">B. Phukon</span>, M. Hasegawa-Johnson</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2022</div>
+      <div>
+        <span class="pub-venue">ACM TALIP</span>
+        <div class="pub-title">Synonymy Expansion Using Link Prediction Methods: A Case Study of Assamese WordNet</div>
+        <div class="pub-authors"><span class="pub-me">B. Phukon</span>, A. Anil, S.R. Singh, P. Sarmah</div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <div class="pub-year">2022</div>
+      <div>
+        <span class="pub-venue">NAACL Findings 2022</span>
+        <div class="pub-title">TEAM: A Multitask Learning Based Taxonomy Expansion Approach for Attach and Merge</div>
+        <div class="pub-authors"><span class="pub-me">B. Phukon</span>, A. Mitra, S.R. Singh, P. Sarmah</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Experience & Education</h2>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-date">Sept 2024 — Present</div>
+      <div>
+        <div class="exp-role">Research Scientist (Affiliate, Remote)</div>
+        <div class="exp-org">University of Illinois Urbana–Champaign (UIUC)</div>
+        <ul class="exp-bullets">
+          <li>Introduced WER–SemScore divergence as a per-utterance uncertainty signal (ρ=0.49, p&lt;0.001); used to gate LLM post-ASR correction, preventing harmful edits in 172/1,321 utterances with zero new harms (3.4:1 safety ratio)</li>
+          <li>Trained a learned uncertainty predictor (ρ=0.63 LOSO) enabling adaptive metric fusion, with largest gains in high-uncertainty regimes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Sept 2023 — Sept 2024</div>
+      <div>
+        <div class="exp-role">Postdoctoral Research Associate</div>
+        <div class="exp-org">University of Illinois Urbana–Champaign (UIUC)</div>
+        <ul class="exp-bullets">
+          <li>Proposed SemScore: 0.890 correlation with human judgments on SAP data, outperforming WER, BERTScore, BLEURT, and Heval</li>
+          <li>Fine-tuned ASR models on 253 Parkinson's speakers; multi-task learning jointly predicting transcription and impairment severity</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Jun 2016 — Jul 2023</div>
+      <div>
+        <div class="exp-role">Senior Research Fellow (Ph.D. Researcher)</div>
+        <div class="exp-org">Indian Institute of Technology (IIT) Guwahati</div>
+        <ul class="exp-bullets">
+          <li>Proposed TEAM — first model to jointly perform attach and merge in multi-task taxonomy expansion; published NAACL Findings 2022</li>
+          <li>Applied link prediction to Assamese WordNet (24,533 nodes), achieving MAP@10 0.70 for synonymy; published ACM TALIP 2022</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2023</div>
+      <div>
+        <div class="exp-role">Ph.D., Computational Linguistics</div>
+        <div class="exp-org">IIT Guwahati · Deep Learning for Ontology Expansion in Low-Resource NLP</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2012</div>
+      <div>
+        <div class="exp-role">M.Tech., Information Technology — CGPA 9.01/10</div>
+        <div class="exp-org">Gauhati University · Focus: NLP</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Technical Skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-label">Frameworks</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">HuggingFace</span><span class="skill-tag">Kaldi</span>
+        <span class="skill-tag">Whisper</span><span class="skill-tag">Wav2Vec2</span>
+        <span class="skill-tag">RoBERTa</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label">Techniques</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Transformer Fine-tuning</span>
+        <span class="skill-tag">Uncertainty Quantification</span>
+        <span class="skill-tag">Multi-task Learning</span>
+        <span class="skill-tag">RLHF</span><span class="skill-tag">RAG</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">GNNs</span><span class="skill-tag">MoE</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-label">Infrastructure</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span><span class="skill-tag">C/C++</span>
+        <span class="skill-tag">Docker</span><span class="skill-tag">Slurm</span>
+        <span class="skill-tag">HPC / NCSA</span>
+        <span class="skill-tag">Weights & Biases</span>
+        <span class="skill-tag">TensorBoard</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<hr class="divider">
+
+<!-- TRAVEL -->
+<section id="travel">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Beyond the Lab</h2>
+  </div>
+  <p style="color:var(--ink-mid);font-size:0.95rem;line-height:1.75;max-width:640px;margin-bottom:2.5rem;">Research takes me across continents — from Rotterdam for Interspeech to Guwahati and back. Here are some moments from the journey.</p>
+  <div class="gallery-grid">
+    <div class="gallery-card featured">
+      <div class="gallery-img-wrap">
+        <div class="gallery-placeholder">📍 Interspeech 2025 · Rotterdam</div>
+      </div>
+      <div class="gallery-caption">Interspeech 2025 · Rotterdam, Netherlands</div>
+    </div>
+    <div class="gallery-card">
+      <div class="gallery-img-wrap small">
+        <div class="gallery-placeholder">📍 Add photo</div>
+      </div>
+      <div class="gallery-caption">Your caption here</div>
+    </div>
+    <div class="gallery-card">
+      <div class="gallery-img-wrap small">
+        <div class="gallery-placeholder">📍 Add photo</div>
+      </div>
+      <div class="gallery-caption">Your caption here</div>
+    </div>
+    <div class="gallery-card">
+      <div class="gallery-img-wrap small">
+        <div class="gallery-placeholder">📍 Add photo</div>
+      </div>
+      <div class="gallery-caption">Your caption here</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section">
+  <div class="contact-inner" id="contact">
+    <div>
+      <h2 class="contact-heading">Let's connect.</h2>
+      <p class="contact-sub">Open to research collaborations, industry roles in NLP & Speech AI, and conversations about accessible AI and deep tech startups.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:bornalip@illinois.edu" class="contact-link">✉ Email</a>
+      <a href="https://scholar.google.com/citations?user=Ecmv_T4AAAAJ&hl=en" target="_blank" class="contact-link">Google Scholar ↗</a>
+      <a href="https://linkedin.com/in/bornali-phukon" target="_blank" class="contact-link">LinkedIn ↗</a>
+      <a href="https://github.com/BornaliP/SemScore" target="_blank" class="contact-link">GitHub ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-text">Dr. Bornali Phukon · Guwahati, Assam & UIUC · 2026</span>
+  <span class="footer-text">bornalip@illinois.edu</span>
+</footer>
+
+</body>
+</html>
