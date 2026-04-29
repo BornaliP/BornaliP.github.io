@@ -85,7 +85,7 @@
   .hero {
     max-width: 1100px; margin: 0 auto;
     padding: 2.5rem 2.5rem 2rem;
-    display: grid; grid-template-columns: 1fr 340px; gap: 3rem; align-items: start;
+    display: grid; grid-template-columns: 1fr 200px; gap: 3rem; align-items: start;
   }
   .hero-label {
     font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
@@ -93,7 +93,7 @@
   }
   h1 {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     line-height: 1.1; letter-spacing: -0.02em;
     color: var(--ink); margin-bottom: 0.9rem;
   }
@@ -121,7 +121,7 @@
 
   .hero-photo-col { position: relative; padding-top: 0.5rem; }
   .photo-frame {
-    width: 100%; aspect-ratio: 4/5; overflow: hidden;
+    width: 100%; aspect-ratio: 3/4; overflow: hidden;
     border-radius: 6px;
     background: var(--accent-light);
   }
@@ -142,7 +142,7 @@
   .section-title { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--ink); }
 
   /* ── ABOUT ── */
-    .about-grid { max-width: 760px; }
+    .about-grid { max-width: 100%; }
   .about-text p { color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.1rem; font-size: 1.02rem; }
   .about-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
   .about-meta-item { display: flex; flex-direction: column; gap: 2px; }
@@ -258,6 +258,13 @@
   .gallery-placeholder { font-size:0.8rem; color:var(--ink-light); text-align:center; padding:1rem; }
   .gallery-caption { font-size:0.75rem; color:var(--ink-light); margin-top:6px; padding-left:2px; }
   @media(max-width:768px){.gallery-grid{grid-template-columns:1fr;}.gallery-card.featured{grid-column:1;}}
+
+  .name-gradient {
+    background: linear-gradient(135deg, #1a1814 0%, #2c4a7c 50%, #5b8fc7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 </style>
 </head>
 <body>
@@ -269,8 +276,9 @@
     <li><a href="#about">About</a></li>
     <li><a href="#publications">Research</a></li>
     <li><a href="#experience">CV</a></li>
-    
-    <li><a href="#travel">Beyond the Lab</a></li><li><a href="resume.pdf" target="_blank">CV</a></li><li><a href="#contact">Contact</a></li>
+    <li><a href="#travel">Beyond the Lab</a></li>
+    <li><a href="resume.pdf" target="_blank">Resume ↗</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -278,7 +286,7 @@
 <div class="hero">
   <div class="hero-text">
     <div class="hero-label">Research Scientist · NLP & Speech AI</div>
-    <h1>Dr. Bornali<br>Phukon</h1>
+    <h1><span class="name-gradient">Dr. Bornali Phukon</span></h1>
     <p class="hero-bio">
       Affiliate Research Scientist at the Beckman Institute, UIUC, working with Prof. Mark Hasegawa-Johnson on dysarthric speech recognition, LLM-based ASR error correction, and semantic evaluation for accessible AI.
     </p>
@@ -533,10 +541,11 @@
   <p style="color:var(--ink-mid);font-size:0.95rem;line-height:1.75;max-width:640px;margin-bottom:2.5rem;">Research takes me across continents — from Rotterdam for Interspeech to Guwahati and back. Here are some moments from the journey.</p>
   <div class="gallery-grid">
     <div class="gallery-card featured">
-      <div class="gallery-img-wrap">
-        <div class="gallery-placeholder">📍 Interspeech 2025 · Rotterdam</div>
+      <div class="gallery-img-wrap" style="position:relative;">
+        <img src="profile.jpg" alt="Invited Panelist at YFRSW, Interspeech 2025" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+        <div style="position:absolute;top:12px;left:12px;background:rgba(44,74,124,0.92);color:#fff;font-size:0.68rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:3px;">✦ Invited Panelist</div>
       </div>
-      <div class="gallery-caption">Interspeech 2025 · Rotterdam, Netherlands</div>
+      <div class="gallery-caption" style="font-size:0.82rem;color:var(--ink-mid);font-weight:500;">Young Female Researchers in Speech Workshop (YFRSW) · Interspeech 2025 · Rotterdam</div>
     </div>
     <div class="gallery-card">
       <div class="gallery-img-wrap small">
